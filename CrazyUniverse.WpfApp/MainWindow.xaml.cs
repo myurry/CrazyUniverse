@@ -4,12 +4,14 @@ using System.Windows;
 using System.Windows.Controls;
 using CrazyUniverse.Core.Interfaces;
 using CrazyUniverse.Core.Models;
+using CrazyUniverse.Core.Services;
 
 namespace CrazyUniverse.WpfApp
 {
     public partial class MainWindow : Window
     {
-        private ObservableCollection<Animal> _animals = new();
+        private SanctuaryManager _sanctuaryManager;
+        private ObservableCollection<Animal> _animalsViewModel;
 
         public MainWindow()
         {
@@ -19,64 +21,128 @@ namespace CrazyUniverse.WpfApp
 
         private void InitializeData()
         {
-            _animals = new ObservableCollection<Animal>
+            _sanctuaryManager = new SanctuaryManager();
+
+            TxtLog.Clear();
+            foreach (var log in _sanctuaryManager.ActivityLogs)
             {
-                new Cow("Bessie", 80),
-                new Horse("Shadowfax", 90),
-                new Monkey("George", 75),
-                new Bird("Skye", 60)
+                TxtLog.AppendText($"{log}{Environment.NewLine}");
+            }
+            TxtLog.ScrollToEnd();
+
+            _animalsViewModel = new ObservableCollection<Animal>(_sanctuaryManager.Animals);
+            LstAnimals.ItemsSource = _animalsViewModel;
+
+            _sanctuaryManager.LogMessageTriggered += (s, message) =>
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    if (message.Contains("successfully wiped all core activity logs clean"))
+                    {
+                        TxtLog.Clear();
+                    }
+
+                    TxtLog.AppendText($"{message}{Environment.NewLine}");
+                    TxtLog.ScrollToEnd();
+
+                    if (message.Contains("has self-destructed"))
+                    {
+                        RefreshView();
+                    }
+                });
             };
 
-            LstAnimals.ItemsSource = _animals;
-            Log("Application started. Welcome to Crazy Universe!");
+            // Set initial name preview based on default dropdown selection
+            UpdateNamePreview();
+        }
+
+
+        private void UpdateNamePreview()
+        {
+            // Ensure TxtName is initialized before trying to write to it
+            if (TxtName == null || CmbAnimalType?.SelectedItem is not ComboBoxItem selectedItem)
+            {
+                return;
+            }
+
+            string selectedType = selectedItem.Content?.ToString() ?? "Cow";
+
+            // Fetch random name from Core based on type
+            string randomName = selectedType switch
+            {
+                "Cow" => SanctuaryManager.GetRandomName("CowNames"),
+                "Horse" => SanctuaryManager.GetRandomName("HorseNames"),
+                "Monkey" => SanctuaryManager.GetRandomName("MonkeyNames"),
+                "Bird" => SanctuaryManager.GetRandomName("BirdNames"),
+                _ => SanctuaryManager.GetRandomName("AllNames")
+            };
+
+            TxtName.Text = randomName;
+        }
+
+        private void CmbAnimalType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateNamePreview();
+        }
+
+        private void RefreshView()
+        {
+            _animalsViewModel.Clear();
+            foreach (var animal in _sanctuaryManager.Animals)
+            {
+                _animalsViewModel.Add(animal);
+            }
+            LstAnimals.Items.Refresh();
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                string name = TxtName.Text;
+                var selectedItem = CmbAnimalType.SelectedItem as ComboBoxItem;
+                string selectedType = selectedItem?.Content?.ToString() ?? "Cow";
 
-                // Validate and parse energy level securely
+                // If name input is empty, randomly fetch one from AnimalNames.resx based on type!
+                string name = TxtName.Text.Trim();
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    name = selectedType switch
+                    {
+                        "Cow" => SanctuaryManager.GetRandomName("CowNames"),
+                        "Horse" => SanctuaryManager.GetRandomName("HorseNames"),
+                        "Monkey" => SanctuaryManager.GetRandomName("MonkeyNames"),
+                        "Bird" => SanctuaryManager.GetRandomName("BirdNames"),
+                        _ => SanctuaryManager.GetRandomName("AllNames")
+                    };
+                }
+
                 if (!int.TryParse(TxtEnergy.Text, out int energy))
                 {
                     throw new FormatException("Energy level must be a valid integer number.");
                 }
 
-                Animal newAnimal;
-                var selectedItem = CmbAnimalType.SelectedItem as ComboBoxItem;
-                string selectedType = selectedItem?.Content?.ToString() ?? "Cow";
-
-                switch (selectedType)
+                Animal newAnimal = selectedType switch
                 {
-                    case "Cow":
-                        newAnimal = new Cow(name, energy);
-                        break;
-                    case "Horse":
-                        newAnimal = new Horse(name, energy);
-                        break;
-                    case "Monkey":
-                        newAnimal = new Monkey(name, energy);
-                        break;
-                    case "Bird":
-                        newAnimal = new Bird(name, energy);
-                        break;
-                    default:
-                        throw new InvalidOperationException("Unknown animal type selected.");
-                }
+                    "Cow" => new Cow(name, energy),
+                    "Horse" => new Horse(name, energy),
+                    "Monkey" => new Monkey(name, energy),
+                    "Bird" => new Bird(name, energy),
+                    _ => throw new InvalidOperationException("Unknown animal type selected.")
+                };
 
-                _animals.Add(newAnimal);
+                _sanctuaryManager.AddAnimal(newAnimal);
+                RefreshView();
                 LstAnimals.SelectedItem = newAnimal;
-                Log($"Successfully added new {selectedType}: {newAnimal.Name}");
 
-                // Clear input fields
                 TxtName.Clear();
                 TxtEnergy.Text = "50";
+
+                UpdateNamePreview();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Validation Error: {ex.Message}", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Warning);
-                Log($"Failed to add animal: {ex.Message}");
+                _sanctuaryManager.AddLog($"Failed to add animal: {ex.Message}");
             }
         }
 
@@ -84,8 +150,12 @@ namespace CrazyUniverse.WpfApp
         {
             if (LstAnimals.SelectedItem is Animal selectedAnimal)
             {
-                // Check interface capabilities using 'is' operator for UI feedback
-                if (selectedAnimal is IClimbable)
+                if (selectedAnimal is IClimbable && selectedAnimal is ISwimmable)
+                {
+                    TxtAbilityStatus.Text = $"{selectedAnimal.Name} is multi-talented (IClimbable & ISwimmable)!";
+                    BtnTriggerAbility.IsEnabled = true;
+                }
+                else if (selectedAnimal is IClimbable)
                 {
                     TxtAbilityStatus.Text = $"{selectedAnimal.Name} is IClimbable (can scale heights)!";
                     BtnTriggerAbility.IsEnabled = true;
@@ -107,9 +177,7 @@ namespace CrazyUniverse.WpfApp
         {
             if (LstAnimals.SelectedItem is Animal selectedAnimal)
             {
-                // Polymorphic call
-                string soundMsg = selectedAnimal.MakeSound();
-                Log(soundMsg);
+                _sanctuaryManager.AddLog(selectedAnimal.MakeSound());
             }
             else
             {
@@ -117,16 +185,14 @@ namespace CrazyUniverse.WpfApp
             }
         }
 
-        private void BtnCrazyAction_Click(object sender, RoutedEventArgs e)
+        private async void BtnCrazyAction_Click(object sender, RoutedEventArgs e)
         {
             if (LstAnimals.SelectedItem is Animal selectedAnimal)
             {
-                // Polymorphic CrazyAction call that modifies state and returns a message
-                string crazyMsg = selectedAnimal.CrazyAction();
-                Log($"[CRAZY ACTION]: {crazyMsg}");
+                string crazyMsg = await _sanctuaryManager.ExecuteCrazyActionAsync(selectedAnimal);
+                _sanctuaryManager.AddLog($"[CRAZY ACTION]: {crazyMsg}");
 
-                // Refresh UI binding by resetting item source view
-                LstAnimals.Items.Refresh();
+                RefreshView();
             }
             else
             {
@@ -136,16 +202,19 @@ namespace CrazyUniverse.WpfApp
 
         private void BtnTriggerAbility_Click(object sender, RoutedEventArgs e)
         {
-            // Using 'as' operator to invoke interface methods safely
             if (LstAnimals.SelectedItem is Animal selectedAnimal)
             {
-                if (selectedAnimal is IClimbable climber)
+                if (selectedAnimal is Monkey monkey)
                 {
-                    Log($"[INTERFACE]: {climber.Climb()}");
+                    _sanctuaryManager.AddLog($"[INTERFACE]: {monkey.PerformSpecialAction()}");
+                }
+                else if (selectedAnimal is IClimbable climber)
+                {
+                    _sanctuaryManager.AddLog($"[INTERFACE]: {climber.Climb()}");
                 }
                 else if (selectedAnimal is IFlyable flyer)
                 {
-                    Log($"[INTERFACE]: {flyer.Fly()}");
+                    _sanctuaryManager.AddLog($"[INTERFACE]: {flyer.Fly()}");
                 }
             }
         }
@@ -154,15 +223,9 @@ namespace CrazyUniverse.WpfApp
         {
             if (LstAnimals.SelectedItem is Animal selectedAnimal)
             {
-                _animals.Remove(selectedAnimal);
-                Log($"Removed {selectedAnimal.Name} from sanctuary.");
+                _sanctuaryManager.RemoveAnimal(selectedAnimal);
+                RefreshView();
             }
-        }
-
-        private void Log(string message)
-        {
-            TxtLog.AppendText($"[{DateTime.Now:HH:mm:ss}] {message}{Environment.NewLine}");
-            TxtLog.ScrollToEnd();
         }
     }
 }

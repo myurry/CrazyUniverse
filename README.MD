@@ -4,14 +4,14 @@
 A humorous WPF application where different animals live in a shared world with unique behaviors, interfaces, and randomized crazy actions.
 
 ## 2. How to Run
-1. Clone the repository and open `CrazyUniverse.sln` in Visual Studio 2022.
+1. Clone the repository and open `CrazyUniverse.sln` in Visual Studio 2026.
 2. Set `CrazyUniverse.WpfApp` as the startup project.
 3. Press `F5` to build and run.
 
 ## 3. Class Hierarchy & Interfaces
 * **`Animal`** (Abstract base class): Manages shared properties (`Name`, `EnergyLevel`), standard sound behavior, and the abstract `CrazyAction()`.
 * **`Cow` & `Horse`**: Subclasses with unique sound and crazy actions.
-* **`Monkey`**: Implements `IClimbable` for climbing abilities.
+* **`Monkey`**: Implements `IClimbable` and `ISwimmable` for climbing and swimming abilities.
 * **`Bird`**: Implements `IFlyable` for flight capabilities.
 
 ## 4. State & Crazy Actions
@@ -26,4 +26,4 @@ A humorous WPF application where different animals live in a shared world with u
 5. Select a `Monkey` or `Bird` to enable and test interface-specific actions via the UI.
 
 ## 6. WPF UI Element Rationale
-An **`Expander`** is used to neatly organize and toggle visibility for special interface abilities (`IClimbable` / `IFlyable`), keeping the main detail panel clean and uncluttered.
+An **`Expander`** is used to neatly organize and toggle visibility for special interface abilities (`IClimbable` / `IFlyable` / `ISwimmable`), keeping the main detail panel clean and uncluttered.

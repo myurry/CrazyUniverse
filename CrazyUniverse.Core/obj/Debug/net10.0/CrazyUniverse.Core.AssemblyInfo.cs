@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CrazyUniverse.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+945a7b6b5ff605980f093aba745d06e30ae52724")]
 [assembly: System.Reflection.AssemblyProductAttribute("CrazyUniverse.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CrazyUniverse.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

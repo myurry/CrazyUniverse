@@ -3,44 +3,60 @@
   "WorkspaceRootPath": "F:\\VisualFast\\College\\CrazyUniverse\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3CECBC78-D279-4CC5-BE1E-1F75DC4FA7B5}|CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.wpfapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3CECBC78-D279-4CC5-BE1E-1F75DC4FA7B5}|CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj|solutionrelative:crazyuniverse.wpfapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{56D4D481-D3B5-4351-2F0D-FFEAD577FD54}|CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.wpfapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56D4D481-D3B5-4351-2F0D-FFEAD577FD54}|CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj|solutionrelative:crazyuniverse.wpfapp\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BB5CB65-F9BA-4DFF-981B-5FD354B5DB5D}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\models\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BB5CB65-F9BA-4DFF-981B-5FD354B5DB5D}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\models\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\models\\monkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\models\\monkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3CECBC78-D279-4CC5-BE1E-1F75DC4FA7B5}|CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.wpfapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{3CECBC78-D279-4CC5-BE1E-1F75DC4FA7B5}|CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj|solutionrelative:crazyuniverse.wpfapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{56D4D481-D3B5-4351-2F0D-FFEAD577FD54}|CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.wpfapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{56D4D481-D3B5-4351-2F0D-FFEAD577FD54}|CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj|solutionrelative:crazyuniverse.wpfapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BB5CB65-F9BA-4DFF-981B-5FD354B5DB5D}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\models\\monkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BB5CB65-F9BA-4DFF-981B-5FD354B5DB5D}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\models\\monkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\interfaces\\iflyable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\interfaces\\iflyable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BB5CB65-F9BA-4DFF-981B-5FD354B5DB5D}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\models\\cow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BB5CB65-F9BA-4DFF-981B-5FD354B5DB5D}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\models\\cow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\sanctuarymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\sanctuarymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BB5CB65-F9BA-4DFF-981B-5FD354B5DB5D}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\models\\bird.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BB5CB65-F9BA-4DFF-981B-5FD354B5DB5D}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\models\\bird.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\models\\horse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\models\\horse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3CECBC78-D279-4CC5-BE1E-1F75DC4FA7B5}|CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.wpfapp\\crazyuniverse.wpfapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{3CECBC78-D279-4CC5-BE1E-1F75DC4FA7B5}|CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj|solutionrelative:crazyuniverse.wpfapp\\crazyuniverse.wpfapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\interfaces\\iswimmable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\interfaces\\iswimmable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BB5CB65-F9BA-4DFF-981B-5FD354B5DB5D}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\models\\horse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BB5CB65-F9BA-4DFF-981B-5FD354B5DB5D}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\models\\horse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\models\\bird.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\models\\bird.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BB5CB65-F9BA-4DFF-981B-5FD354B5DB5D}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\interfaces\\iflyable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BB5CB65-F9BA-4DFF-981B-5FD354B5DB5D}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\interfaces\\iflyable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\animalnames.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\animalnames.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6BB5CB65-F9BA-4DFF-981B-5FD354B5DB5D}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\interfaces\\iclimbable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6BB5CB65-F9BA-4DFF-981B-5FD354B5DB5D}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\interfaces\\iclimbable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\interfaces\\iclimbable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\interfaces\\iclimbable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\models\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\models\\animal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\models\\cow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\models\\cow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\animalsounds.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\animalsounds.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56D4D481-D3B5-4351-2F0D-FFEAD577FD54}|CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.wpfapp\\crazyuniverse.wpfapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{56D4D481-D3B5-4351-2F0D-FFEAD577FD54}|CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj|solutionrelative:crazyuniverse.wpfapp\\crazyuniverse.wpfapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,76 +66,75 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CrazyUniverse.WpfApp",
-              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj",
-              "RelativeDocumentMoniker": "CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj",
-              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj",
-              "RelativeToolTip": "CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-10-11T17:44:00.809Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Bird.cs",
-              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Models\\Bird.cs",
-              "RelativeDocumentMoniker": "CrazyUniverse.Core\\Models\\Bird.cs",
-              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Models\\Bird.cs",
-              "RelativeToolTip": "CrazyUniverse.Core\\Models\\Bird.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-11T17:42:31.672Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Monkey.cs",
               "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Models\\Monkey.cs",
               "RelativeDocumentMoniker": "CrazyUniverse.Core\\Models\\Monkey.cs",
               "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Models\\Monkey.cs",
               "RelativeToolTip": "CrazyUniverse.Core\\Models\\Monkey.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-11T17:42:05.261Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Horse.cs",
-              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Models\\Horse.cs",
-              "RelativeDocumentMoniker": "CrazyUniverse.Core\\Models\\Horse.cs",
-              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Models\\Horse.cs",
-              "RelativeToolTip": "CrazyUniverse.Core\\Models\\Horse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA6AAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.WpfApp\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "CrazyUniverse.WpfApp\\MainWindow.xaml.cs",
+              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.WpfApp\\MainWindow.xaml.cs",
+              "RelativeToolTip": "CrazyUniverse.WpfApp\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAYwGcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-11T17:41:31.592Z",
+              "WhenOpened": "2026-10-11T17:19:37.084Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Cow.cs",
-              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Models\\Cow.cs",
-              "RelativeDocumentMoniker": "CrazyUniverse.Core\\Models\\Cow.cs",
-              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Models\\Cow.cs",
-              "RelativeToolTip": "CrazyUniverse.Core\\Models\\Cow.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Title": "SanctuaryManager.cs",
+              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\SanctuaryManager.cs",
+              "RelativeDocumentMoniker": "CrazyUniverse.Core\\SanctuaryManager.cs",
+              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\SanctuaryManager.cs",
+              "RelativeToolTip": "CrazyUniverse.Core\\SanctuaryManager.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAYwD8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-11T17:40:59.045Z",
+              "WhenOpened": "2026-10-11T18:54:36.659Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.WpfApp\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "CrazyUniverse.WpfApp\\MainWindow.xaml",
+              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.WpfApp\\MainWindow.xaml",
+              "RelativeToolTip": "CrazyUniverse.WpfApp\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-10-11T17:19:39.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ISwimmable.cs",
+              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Interfaces\\ISwimmable.cs",
+              "RelativeDocumentMoniker": "CrazyUniverse.Core\\Interfaces\\ISwimmable.cs",
+              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Interfaces\\ISwimmable.cs",
+              "RelativeToolTip": "CrazyUniverse.Core\\Interfaces\\ISwimmable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-11T20:26:43.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "IFlyable.cs",
               "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Interfaces\\IFlyable.cs",
               "RelativeDocumentMoniker": "CrazyUniverse.Core\\Interfaces\\IFlyable.cs",
@@ -128,6 +143,44 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-11T17:39:21.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Bird.cs",
+              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Models\\Bird.cs",
+              "RelativeDocumentMoniker": "CrazyUniverse.Core\\Models\\Bird.cs",
+              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Models\\Bird.cs",
+              "RelativeToolTip": "CrazyUniverse.Core\\Models\\Bird.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-11T17:42:31.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Horse.cs",
+              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Models\\Horse.cs",
+              "RelativeDocumentMoniker": "CrazyUniverse.Core\\Models\\Horse.cs",
+              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Models\\Horse.cs",
+              "RelativeToolTip": "CrazyUniverse.Core\\Models\\Horse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-11T17:41:31.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AnimalNames.resx",
+              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\AnimalNames.resx",
+              "RelativeDocumentMoniker": "CrazyUniverse.Core\\AnimalNames.resx",
+              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\AnimalNames.resx",
+              "RelativeToolTip": "CrazyUniverse.Core\\AnimalNames.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-10-11T20:01:42.279Z",
               "EditorCaption": ""
             },
             {
@@ -145,40 +198,53 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 11,
+              "Title": "Cow.cs",
+              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Models\\Cow.cs",
+              "RelativeDocumentMoniker": "CrazyUniverse.Core\\Models\\Cow.cs",
+              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Models\\Cow.cs",
+              "RelativeToolTip": "CrazyUniverse.Core\\Models\\Cow.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-11T17:40:59.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AnimalSounds.resx",
+              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\AnimalSounds.resx",
+              "RelativeDocumentMoniker": "CrazyUniverse.Core\\AnimalSounds.resx",
+              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\AnimalSounds.resx",
+              "RelativeToolTip": "CrazyUniverse.Core\\AnimalSounds.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2026-10-11T18:31:34.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Animal.cs",
               "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Models\\Animal.cs",
               "RelativeDocumentMoniker": "CrazyUniverse.Core\\Models\\Animal.cs",
               "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Models\\Animal.cs",
               "RelativeToolTip": "CrazyUniverse.Core\\Models\\Animal.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAACsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-11T17:21:24.989Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.WpfApp\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "CrazyUniverse.WpfApp\\MainWindow.xaml",
-              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.WpfApp\\MainWindow.xaml",
-              "RelativeToolTip": "CrazyUniverse.WpfApp\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-10-11T17:19:39.843Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.WpfApp\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "CrazyUniverse.WpfApp\\MainWindow.xaml.cs",
-              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.WpfApp\\MainWindow.xaml.cs",
-              "RelativeToolTip": "CrazyUniverse.WpfApp\\MainWindow.xaml.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-11T17:19:37.084Z",
+              "DocumentIndex": 13,
+              "Title": "CrazyUniverse.WpfApp.csproj",
+              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj",
+              "RelativeDocumentMoniker": "CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj",
+              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj",
+              "RelativeToolTip": "CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-11T17:44:00.809Z",
               "EditorCaption": ""
             }
           ]

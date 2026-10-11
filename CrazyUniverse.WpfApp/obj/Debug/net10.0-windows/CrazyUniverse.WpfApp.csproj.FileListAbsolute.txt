@@ -21,3 +21,4 @@ F:\VisualFast\College\CrazyUniverse\CrazyUniverse.WpfApp\obj\Debug\net10.0-windo
 F:\VisualFast\College\CrazyUniverse\CrazyUniverse.WpfApp\obj\Debug\net10.0-windows\CrazyUniverse.WpfApp.pdb
 F:\VisualFast\College\CrazyUniverse\CrazyUniverse.WpfApp\obj\Debug\net10.0-windows\CrazyUniverse.WpfApp.genruntimeconfig.cache
 F:\VisualFast\College\CrazyUniverse\CrazyUniverse.WpfApp\obj\Debug\net10.0-windows\ref\CrazyUniverse.WpfApp.dll
+F:\VisualFast\College\CrazyUniverse\CrazyUniverse.WpfApp\obj\Debug\net10.0-windows\CrazyUniverse.WpfApp.sourcelink.json

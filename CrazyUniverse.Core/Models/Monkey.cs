@@ -1,28 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CrazyUniverse.Core.Interfaces;
+﻿using CrazyUniverse.Core.Interfaces;
+using System;
 
 namespace CrazyUniverse.Core.Models
 {
-    public class Monkey : Animal, IClimbable
+    public class Monkey : Animal, IClimbable, ISwimmable
     {
+        private static readonly Random _random = new();
+
         public Monkey(string name, int energyLevel) : base(name, energyLevel) { }
 
-        public override string MakeSound()
-        {
-            return $"{Name} the Monkey screeches: Ooh ooh ah ah!";
-        }
+        public override string MakeSound() => GetRandomSound("MonkeySounds");
 
         public override string CrazyAction()
         {
-            EnergyLevel = Math.Max(0, EnergyLevel - 25);
-            return $"{Name} hacks the mainframe and starts deleting system logs while eating a banana.";
+            EnergyLevel = Math.Max(0, EnergyLevel - 20);
+            return $"{Name} is hacking into the core activity logs!";
         }
 
-        public string Climb()
+        // Implementation for IClimbable
+        public string Climb() => $"{Name} deftly scales the sanctuary trees.";
+
+        // Implementation for ISwimmable
+        public string Swim() => $"{Name} takes a quick dip in the sanctuary pond.";
+
+        public string PerformSpecialAction()
         {
-            return $"{Name} scales the nearest skyscraper in 3 seconds flat.";
+            return _random.Next(2) == 0 ? Climb() : Swim();
         }
     }
 }

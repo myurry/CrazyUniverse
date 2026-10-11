@@ -10,3 +10,7 @@ F:\VisualFast\College\CrazyUniverse\CrazyUniverse.Core\obj\Debug\net10.0\refint\
 F:\VisualFast\College\CrazyUniverse\CrazyUniverse.Core\obj\Debug\net10.0\CrazyUniverse.Core.pdb
 F:\VisualFast\College\CrazyUniverse\CrazyUniverse.Core\obj\Debug\net10.0\ref\CrazyUniverse.Core.dll
 F:\VisualFast\College\CrazyUniverse\CrazyUniverse.Core\obj\Debug\net10.0\CrazyUni.DC6B1DE7.Up2Date
+F:\VisualFast\College\CrazyUniverse\CrazyUniverse.Core\obj\Debug\net10.0\CrazyUniverse.Core.AnimalSounds.resources
+F:\VisualFast\College\CrazyUniverse\CrazyUniverse.Core\obj\Debug\net10.0\CrazyUniverse.Core.csproj.GenerateResource.cache
+F:\VisualFast\College\CrazyUniverse\CrazyUniverse.Core\obj\Debug\net10.0\CrazyUniverse.Core.sourcelink.json
+F:\VisualFast\College\CrazyUniverse\CrazyUniverse.Core\obj\Debug\net10.0\CrazyUniverse.Core.AnimalNames.resources

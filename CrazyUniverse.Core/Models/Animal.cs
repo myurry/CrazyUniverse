@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Resources;
 
 namespace CrazyUniverse.Core.Models
 {
     public abstract class Animal
     {
+        private static readonly Random _random = new();
         private string _name = string.Empty;
         private int _energyLevel;
 
@@ -35,13 +37,23 @@ namespace CrazyUniverse.Core.Models
             EnergyLevel = energyLevel;
         }
 
-        // Virtual method for standard behavior
+        // Virtual method that subclasses can call with their specific resource key
         public virtual string MakeSound()
         {
             return $"{Name} makes a generic animal sound.";
         }
 
-        // Abstract method that every subclass must implement uniquely
+        protected string GetRandomSound(string resourceKey)
+        {
+            // Accesses the resource manager of CrazyUniverse.Core.Resources.AnimalSounds
+            // Make sure your .resx file is placed inside a "Resources" folder in the Core project
+            string soundsList = AnimalSounds.ResourceManager.GetString(resourceKey) ?? "Silence...";
+            string[] sounds = soundsList.Split('|');
+
+            string randomSound = sounds[_random.Next(sounds.Length)];
+            return $"{Name} says: \"{randomSound}\"";
+        }
+
         public abstract string CrazyAction();
 
         public override string ToString()

@@ -6,7 +6,7 @@
         mc:Ignorable="d"
         Title="Crazy Universe - Animal Sanctuary" Height="500" Width="850"
         WindowStartupLocation="CenterScreen">
-    
+
     <Grid Margin="15">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
@@ -17,7 +17,7 @@
         <!-- Left Column: List and Add Controls -->
         <DockPanel Grid.Column="0">
             <TextBlock Text="Animals in Sanctuary" FontWeight="Bold" FontSize="14" DockPanel.Dock="Top" Margin="0,0,0,5"/>
-            
+
             <!-- Add Animal Panel at Bottom -->
             <StackPanel DockPanel.Dock="Bottom" Margin="0,10,0,0">
                 <TextBlock Text="Add New Animal" FontWeight="Bold" Margin="0,0,0,5"/>
@@ -34,7 +34,7 @@
                     </Grid.RowDefinitions>
 
                     <Label Grid.Row="0" Grid.Column="0" Content="Type:"/>
-                    <ComboBox x:Name="CmbAnimalType" Grid.Row="0" Grid.Column="1" Margin="2" SelectedIndex="0">
+                    <ComboBox x:Name="CmbAnimalType" Grid.Row="0" Grid.Column="1" Margin="2" SelectedIndex="0" SelectionChanged="CmbAnimalType_SelectionChanged">
                         <ComboBoxItem Content="Cow"/>
                         <ComboBoxItem Content="Horse"/>
                         <ComboBoxItem Content="Monkey"/>
@@ -42,7 +42,7 @@
                     </ComboBox>
 
                     <Label Grid.Row="1" Grid.Column="0" Content="Name:"/>
-                    <TextBox x:Name="TxtName" Grid.Row="1" Grid.Column="1" Margin="2" VerticalContentAlignment="Center"/>
+                    <TextBox x:Name="TxtName" Grid.Row="1" Grid.Column="1" Margin="2,2,2,0" VerticalContentAlignment="Center" Height="22" VerticalAlignment="Top"/>
 
                     <Label Grid.Row="2" Grid.Column="0" Content="Energy (0-100):"/>
                     <TextBox x:Name="TxtEnergy" Grid.Row="2" Grid.Column="1" Margin="2" VerticalContentAlignment="Center" Text="50"/>

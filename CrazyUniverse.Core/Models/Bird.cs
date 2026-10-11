@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CrazyUniverse.Core.Interfaces;
+﻿using CrazyUniverse.Core.Interfaces;
 
 namespace CrazyUniverse.Core.Models
 {
@@ -9,20 +6,14 @@ namespace CrazyUniverse.Core.Models
     {
         public Bird(string name, int energyLevel) : base(name, energyLevel) { }
 
-        public override string MakeSound()
-        {
-            return $"{Name} the Bird chirps cheerfully: Tweet tweet!";
-        }
+        public override string MakeSound() => GetRandomSound("BirdSounds");
 
         public override string CrazyAction()
         {
             EnergyLevel = 0;
-            return $"{Name} challenges gravity and initiates self-destruct sequence... 4... 3... 2... 1... Just kidding! App still running!";
+            return $"{Name} challenges gravity and initiates self-destruct sequence...";
         }
 
-        public string Fly()
-        {
-            return $"{Name} soars into the stratosphere, breaking the sound barrier.";
-        }
+        public string Fly() => $"{Name} flies gracefully through the skies.";
     }
 }

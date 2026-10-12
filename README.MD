@@ -16,7 +16,7 @@ A humorous WPF application where different animals live in a shared world with u
 
 ## 4. State & Crazy Actions
 * **Validation**: Input names cannot be blank, and energy must remain between 0 and 100. Invalid entries trigger a safe exception message without crashing the app.
-* **CrazyAction()**: Each animal triggers a distinct chaotic effect (e.g., cow producing chocolate milk, horse duplicating 100 times, monkey hacking systems, or bird initiating a fake countdown).
+* **CrazyAction()**: Each animal triggers a distinct chaotic effect.
 
 ## 5. Use Cases
 1. Add a new animal with valid name and energy values.

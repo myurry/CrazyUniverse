@@ -5,7 +5,7 @@ namespace CrazyUniverse.Core.Models
 {
     public abstract class Animal : INotifyPropertyChanged, IDisposable
     {
-        private string _name;
+        private string _name = string.Empty;
         public string Name
         {
             get => _name;
@@ -19,11 +19,12 @@ namespace CrazyUniverse.Core.Models
             }
         }
 
+        private IAnimalRepository? _currentRepository;
         private int _energyLevel;
         public int EnergyLevel
         {
             get => _energyLevel;
-            set
+            protected set
             {
                 int clamped = Math.Max(0, Math.Min(100, value));
                 if (_energyLevel != clamped)
@@ -35,8 +36,6 @@ namespace CrazyUniverse.Core.Models
         }
 
         public string TypeName => GetType().Name;
-
-        private Repository<Animal>? _currentRepository;
         private Action<string>? _logger;
 
         protected Animal(string name, int energyLevel)
@@ -45,11 +44,14 @@ namespace CrazyUniverse.Core.Models
             EnergyLevel = energyLevel;
         }
 
-        // Attach to repository events when added
-        public void BindToRepository(Repository<Animal> repository, Action<string> logger)
+        public void ModifyEnergy(int amount)
         {
-            UnbindRepository(); // Clean up previous bindings if any
+            EnergyLevel += amount;
+        }
 
+        public void BindToRepository(IAnimalRepository repository, Action<string> logger)
+        {
+            UnbindRepository();
             _currentRepository = repository;
             _logger = logger;
 
@@ -71,41 +73,32 @@ namespace CrazyUniverse.Core.Models
 
         private void OnRepositoryItemAdded(object? sender, Animal newcomer)
         {
-            // Do not react to self
             if (newcomer == this) return;
-
             _logger?.Invoke($"[{Name}] greets newcomer [{newcomer.Name}]!");
-            // State change reaction
-            EnergyLevel = Math.Min(100, EnergyLevel + 5);
+            ModifyEnergy(5);
         }
 
         private void OnRepositoryItemRemoved(object? sender, Animal departing)
         {
-            // Do not react to self
             if (departing == this) return;
-
             _logger?.Invoke($"[{Name}] says goodbye to departing [{departing.Name}].");
         }
 
         private void OnRepositoryCrazyActionExecuted(object? sender, Animal actor)
         {
-            // Do not react to self
             if (actor == this) return;
-
             _logger?.Invoke($"[{Name}] reacts to [{actor.Name}]'s CrazyAction!");
-            // State change reaction
-            EnergyLevel = Math.Max(0, EnergyLevel - 10);
+            ModifyEnergy(-10);
         }
 
-        public abstract void PerformSpecialAction(Repository<Animal> repository, Action<string> logger);
+        // Polymorphic special action replaces manager if/else statements
+        public abstract void PerformSpecialAction(IAnimalRepository repository, Action<string> logger);
 
         public void Dispose()
         {
-            Unbinding();
+            UnbindRepository();
             GC.SuppressFinalize(this);
         }
-
-        protected virtual void Unbinding() => UnbindRepository();
 
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged(string propertyName) =>

@@ -1,15 +1,13 @@
-﻿using CrazyUniverse.Core.Interfaces;
-
-namespace CrazyUniverse.Core.Models
+﻿namespace CrazyUniverse.Core.Models
 {
     public class Bird : Animal
     {
         public Bird(string name, int energy) : base(name, energy) { }
 
-        public override void PerformSpecialAction(IRepository<Animal> repository, Action<string> logAction)
+        public override void PerformSpecialAction(IAnimalRepository repository, Action<string> logger)
         {
-            logAction($"{Name} has self-destructed!");
-            repository.Remove(this);
+            logger($"{Name} the Bird has self-destructed!");
+            repository.RemoveAnimal(this);
         }
     }
 }

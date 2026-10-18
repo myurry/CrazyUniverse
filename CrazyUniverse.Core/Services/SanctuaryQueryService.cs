@@ -51,7 +51,18 @@ namespace CrazyUniverse.Core.Services
                 })
                 .ToList();
         }
+
+        public static IEnumerable<Animal> FilterByNameOrEnergy(IEnumerable<Animal> animals, string query, int minEnergy)
+        {
+            return animals.Where(a => (string.IsNullOrEmpty(query) || a.Name.Contains(query, StringComparison.OrdinalIgnoreCase))
+                                      && a.EnergyLevel >= minEnergy);
+        }
+
+
     }
+
+
+
 
     /// <summary>
     /// Clean data model holding aggregated group statistics for the UI summary view.

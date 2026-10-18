@@ -4,12 +4,11 @@
     {
         public Horse(string name, int energy) : base(name, energy) { }
 
-        public override void PerformSpecialAction(IRepository<Animal> repository, Action<string> logAction)
+        public override void PerformSpecialAction(IAnimalRepository repository, Action<string> logger)
         {
-            logAction($"{Name} the Horse gallops fiercely and clones itself!");
-            // Clone logic handled polymorphically here or via repository callback
+            logger($"{Name} the Horse gallops fiercely and clones itself!");
             var clone = new Horse($"{Name}_Clone", EnergyLevel);
-            repository.Add(clone);
+            repository.AddAnimal(clone);
         }
     }
 }

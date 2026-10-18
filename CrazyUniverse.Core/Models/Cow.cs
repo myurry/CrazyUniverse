@@ -1,15 +1,15 @@
-﻿namespace CrazyUniverse.Core.Models
+﻿using System;
+
+namespace CrazyUniverse.Core.Models
 {
     public class Cow : Animal
     {
-        public Cow(string name, int energyLevel) : base(name, energyLevel) { }
+        public Cow(string name, int energy) : base(name, energy) { }
 
-        public override string MakeSound() => GetRandomSound("CowSounds");
-
-        public override string CrazyAction()
+        public override void PerformSpecialAction(IAnimalRepository repository, Action<string> logger)
         {
-            EnergyLevel = Math.Max(0, EnergyLevel - 10);
-            return $"{Name} attempts quantum teleportation and produces 500 liters of chocolate milk!";
+            logger($"{Name} the Cow peacefully grazes and restores energy!");
+            ModifyEnergy(15);
         }
     }
 }

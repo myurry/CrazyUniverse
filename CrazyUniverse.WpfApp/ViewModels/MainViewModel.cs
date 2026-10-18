@@ -15,10 +15,11 @@ namespace CrazyUniverse.WpfApp.ViewModels
     {
         // Repositories for different animal types
         private readonly Repository<Horse> _horseRepository = new();
+        private readonly Repository<Cow> _cowRepository = new();
         private readonly Repository<Monkey> _monkeyRepository = new();
         private readonly Repository<Bird> _birdRepository = new();
 
-        private IRepository<Animal> _currentRepository;
+        private IAnimalRepository _currentRepository;
         private Animal? _selectedAnimal;
         private string _logText = string.Empty;
         private string _searchTerm = string.Empty;
@@ -26,11 +27,25 @@ namespace CrazyUniverse.WpfApp.ViewModels
         private string _newAnimalName = string.Empty;
         private int _minEnergyFilter = 0;
         private bool _isSortedDescending;
+        private string _newAnimalType = "Horse";
+
+        public string NewAnimalType
+        {
+            get => _newAnimalType;
+            set
+            {
+                if (_newAnimalType != value)
+                {
+                    _newAnimalType = value;
+                    OnPropertyChanged(nameof(NewAnimalType));
+                }
+            }
+        }
 
         public MainViewModel()
         {
             // Default to Horse repository
-            _currentRepository = _horseRepository as IRepository<Animal> ?? throw new InvalidOperationException();
+            _currentRepository = _horseRepository;
 
             // Initialize Commands
             AddCommand = new RelayCommand(_ => ExecuteAdd(), _ => !string.IsNullOrWhiteSpace(NewAnimalName));
@@ -81,7 +96,7 @@ namespace CrazyUniverse.WpfApp.ViewModels
                 {
                     _searchTerm = value;
                     OnPropertyChanged(nameof(SearchTerm));
-                    UpdateDisplayedAnimals(); // Refresh LINQ filter on change
+                    UpdateDisplayedAnimals();
                 }
             }
         }
@@ -136,35 +151,54 @@ namespace CrazyUniverse.WpfApp.ViewModels
                 {
                     _selectedAnimalType = value;
                     OnPropertyChanged(nameof(SelectedAnimalType));
+
+                    _currentRepository = GetRepositoryForType(value);
+                    UpdateDisplayedAnimals();
                 }
             }
         }
 
-        // Summary Grouping Result for UI Display
-        public IEnumerable<object> GroupSummary => SanctuaryLinqQueries.GetGroupSummary(_currentRepository.GetAll());
+        public IEnumerable<object> GroupSummary => SanctuaryQueryService.GetGroupSummary(_currentRepository.GetAllAnimals());
 
         // --- Commands ---
 
         public ICommand AddCommand { get; }
         public ICommand RemoveCommand { get; }
         public ICommand CrazyActionCommand { get; }
+        public ICommand TriggerCrazyActionCommand { get; } = new RelayCommand(_ => { });
+
+        // --- Helper methods ---
+
+        private IAnimalRepository GetRepositoryForType(string animalType) => animalType switch
+        {
+            "Horse" => _horseRepository,
+            "Cow" => _cowRepository,
+            "Monkey" => _monkeyRepository,
+            "Bird" => _birdRepository,
+            _ => _horseRepository
+        };
 
         // --- Action Handlers ---
 
         private void ExecuteAdd()
         {
-            Animal newAnimal = SelectedAnimalType switch
+            if (string.IsNullOrWhiteSpace(NewAnimalName)) return;
+
+            // Используем NewAnimalType для определения типа создаваемого объекта
+            Animal newAnimal = NewAnimalType switch
             {
                 "Horse" => new Horse(NewAnimalName, 80),
+                "Cow" => new Cow(NewAnimalName, 70),
                 "Monkey" => new Monkey(NewAnimalName, 75),
                 "Bird" => new Bird(NewAnimalName, 60),
                 _ => new Horse(NewAnimalName, 50)
             };
 
-            // Bind to repository events for logging and reaction rules
-            newAnimal.BindToRepository((Repository<Animal>)_currentRepository, LogMessage);
+            var targetRepo = GetRepositoryForType(NewAnimalType);
 
-            _currentRepository.Add(newAnimal);
+            newAnimal.BindToRepository(targetRepo, LogMessage);
+            targetRepo.AddAnimal(newAnimal);
+
             NewAnimalName = string.Empty;
             UpdateDisplayedAnimals();
         }
@@ -173,10 +207,15 @@ namespace CrazyUniverse.WpfApp.ViewModels
         {
             if (SelectedAnimal == null) return;
 
-            _currentRepository.Remove(SelectedAnimal);
+            _currentRepository.RemoveAnimal(SelectedAnimal);
             SelectedAnimal.UnbindRepository();
             SelectedAnimal = null;
             UpdateDisplayedAnimals();
+        }
+
+        public void RemoveSelectedAnimal()
+        {
+            ExecuteRemove();
         }
 
         private async System.Threading.Tasks.Task ExecuteCrazyActionAsync()
@@ -185,14 +224,9 @@ namespace CrazyUniverse.WpfApp.ViewModels
 
             LogMessage($"--- Action triggered by {SelectedAnimal.Name} ---");
 
-            // Invoke polymorphic special action
-            SelectedAnimal.PerformSpecialAction((Repository<Animal>)_currentRepository, LogMessage);
 
-            // If repository was a concrete generic repository, trigger event for neighbors
-            if (_currentRepository is Repository<Animal> repo)
-            {
-                repo.TriggerCrazyAction(SelectedAnimal);
-            }
+            SelectedAnimal.PerformSpecialAction(_currentRepository, LogMessage);
+            _currentRepository.TriggerCrazyActionForAnimal(SelectedAnimal);
 
             UpdateDisplayedAnimals();
             await System.Threading.Tasks.Task.CompletedTask;
@@ -204,13 +238,9 @@ namespace CrazyUniverse.WpfApp.ViewModels
         {
             DisplayedAnimals.Clear();
 
-            var all = _currentRepository.GetAll();
-
-            // Apply LINQ Search/Filter
-            var filtered = SanctuaryLinqQueries.FilterByNameOrEnergy(all, SearchTerm, MinEnergyFilter);
-
-            // Apply LINQ Sorting
-            var sorted = SanctuaryLinqQueries.SortAnimals(filtered, IsSortedDescending);
+            var all = _currentRepository.GetAllAnimals();
+            var filtered = SanctuaryQueryService.FilterByNameOrEnergy(all, SearchTerm, MinEnergyFilter);
+            var sorted = SanctuaryQueryService.SortAnimals(filtered, IsSortedDescending);
 
             foreach (var item in sorted)
             {
@@ -231,12 +261,11 @@ namespace CrazyUniverse.WpfApp.ViewModels
             var h2 = new Horse("Thunder", 85);
             h1.BindToRepository(_horseRepository, LogMessage);
             h2.BindToRepository(_horseRepository, LogMessage);
-            _horseRepository.Add(h1);
-            _horseRepository.Add(h2);
+            _horseRepository.AddAnimal(h1);
+            _horseRepository.AddAnimal(h2);
         }
     }
 
-    // Base class for INotifyPropertyChanged
     public abstract class NotifyPropertyChangedBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;

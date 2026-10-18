@@ -6,10 +6,10 @@ namespace CrazyUniverse.Core
 {
     public class SanctuaryManager
     {
-        private readonly IRepository<Animal> _repository;
+        private readonly IAnimalRepository _repository;
         private readonly Action<string> _logger;
 
-        public SanctuaryManager(IRepository<Animal> repository, Action<string> logger)
+        public SanctuaryManager(IAnimalRepository repository, Action<string> logger)
         {
             _repository = repository;
             _logger = logger;
@@ -19,8 +19,12 @@ namespace CrazyUniverse.Core
         {
             if (selectedAnimal == null) return;
 
-            // Polymorphic call — no type checking (if/else) needed here!
-            selectedAnimal.PerformSpecialAction(_repository, _logger);
+            // Clean polymorphic call — no type checking needed!
+            if (_repository is IAnimalRepository concreteRepo)
+            {
+                selectedAnimal.PerformSpecialAction(concreteRepo, _logger);
+                concreteRepo.TriggerCrazyActionForAnimal(selectedAnimal);
+            }
 
             await Task.CompletedTask;
         }

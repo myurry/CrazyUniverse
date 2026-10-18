@@ -2,18 +2,14 @@
 
 namespace CrazyUniverse.Core.Models
 {
-    public class Bird : Animal, IFlyable
+    public class Bird : Animal
     {
-        public Bird(string name, int energyLevel) : base(name, energyLevel) { }
+        public Bird(string name, int energy) : base(name, energy) { }
 
-        public override string MakeSound() => GetRandomSound("BirdSounds");
-
-        public override string CrazyAction()
+        public override void PerformSpecialAction(IRepository<Animal> repository, Action<string> logAction)
         {
-            EnergyLevel = 0;
-            return $"{Name} challenges gravity and initiates self-destruct sequence...";
+            logAction($"{Name} has self-destructed!");
+            repository.Remove(this);
         }
-
-        public string Fly() => $"{Name} flies gracefully through the skies.";
     }
 }

@@ -11,28 +11,28 @@
       "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\models\\monkey.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\models\\horse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\models\\horse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\sanctuarymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\sanctuarymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\interfaces\\iswimmable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\interfaces\\iswimmable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{56D4D481-D3B5-4351-2F0D-FFEAD577FD54}|CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.wpfapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{56D4D481-D3B5-4351-2F0D-FFEAD577FD54}|CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj|solutionrelative:crazyuniverse.wpfapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\interfaces\\iflyable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\interfaces\\iflyable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\models\\bird.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\models\\bird.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\sanctuarymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\sanctuarymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{56D4D481-D3B5-4351-2F0D-FFEAD577FD54}|CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.wpfapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{56D4D481-D3B5-4351-2F0D-FFEAD577FD54}|CrazyUniverse.WpfApp\\CrazyUniverse.WpfApp.csproj|solutionrelative:crazyuniverse.wpfapp\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\models\\horse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\models\\horse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\interfaces\\iswimmable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\interfaces\\iswimmable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\models\\bird.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|solutionrelative:crazyuniverse.core\\models\\bird.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0B27C941-107B-6EC8-3518-CD8A95D9A1AC}|CrazyUniverse.Core\\CrazyUniverse.Core.csproj|f:\\visualfast\\college\\crazyuniverse\\crazyuniverse.core\\animalnames.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
@@ -66,21 +66,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ISwimmable.cs",
-              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Interfaces\\ISwimmable.cs",
-              "RelativeDocumentMoniker": "CrazyUniverse.Core\\Interfaces\\ISwimmable.cs",
-              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Interfaces\\ISwimmable.cs",
-              "RelativeToolTip": "CrazyUniverse.Core\\Interfaces\\ISwimmable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-11T20:26:43.04Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -102,14 +89,14 @@
               "RelativeDocumentMoniker": "CrazyUniverse.WpfApp\\MainWindow.xaml.cs",
               "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.WpfApp\\MainWindow.xaml.cs",
               "RelativeToolTip": "CrazyUniverse.WpfApp\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAYwI0AAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAYwGcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-11T17:19:37.084Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "SanctuaryManager.cs",
               "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\SanctuaryManager.cs",
               "RelativeDocumentMoniker": "CrazyUniverse.Core\\SanctuaryManager.cs",
@@ -122,7 +109,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.WpfApp\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "CrazyUniverse.WpfApp\\MainWindow.xaml",
+              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.WpfApp\\MainWindow.xaml",
+              "RelativeToolTip": "CrazyUniverse.WpfApp\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-10-11T17:19:39.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ISwimmable.cs",
+              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Interfaces\\ISwimmable.cs",
+              "RelativeDocumentMoniker": "CrazyUniverse.Core\\Interfaces\\ISwimmable.cs",
+              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Interfaces\\ISwimmable.cs",
+              "RelativeToolTip": "CrazyUniverse.Core\\Interfaces\\ISwimmable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-11T20:26:43.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "IFlyable.cs",
               "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Interfaces\\IFlyable.cs",
               "RelativeDocumentMoniker": "CrazyUniverse.Core\\Interfaces\\IFlyable.cs",
@@ -135,7 +147,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Bird.cs",
               "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Models\\Bird.cs",
               "RelativeDocumentMoniker": "CrazyUniverse.Core\\Models\\Bird.cs",
@@ -148,7 +160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Horse.cs",
               "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.Core\\Models\\Horse.cs",
               "RelativeDocumentMoniker": "CrazyUniverse.Core\\Models\\Horse.cs",
@@ -157,18 +169,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-11T17:41:31.592Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.WpfApp\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "CrazyUniverse.WpfApp\\MainWindow.xaml",
-              "ToolTip": "F:\\VisualFast\\College\\CrazyUniverse\\CrazyUniverse.WpfApp\\MainWindow.xaml",
-              "RelativeToolTip": "CrazyUniverse.WpfApp\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-10-11T17:19:39.843Z",
               "EditorCaption": ""
             },
             {

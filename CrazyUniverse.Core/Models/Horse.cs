@@ -2,14 +2,14 @@
 {
     public class Horse : Animal
     {
-        public Horse(string name, int energyLevel) : base(name, energyLevel) { }
+        public Horse(string name, int energy) : base(name, energy) { }
 
-        public override string MakeSound() => GetRandomSound("HorseSounds");
-
-        public override string CrazyAction()
+        public override void PerformSpecialAction(IRepository<Animal> repository, Action<string> logAction)
         {
-            EnergyLevel = Math.Max(0, EnergyLevel - 20);
-            return $"{Name} duplicates itself 100 times and fills up the entire pasture with hooves!";
+            logAction($"{Name} the Horse gallops fiercely and clones itself!");
+            // Clone logic handled polymorphically here or via repository callback
+            var clone = new Horse($"{Name}_Clone", EnergyLevel);
+            repository.Add(clone);
         }
     }
 }

@@ -36,7 +36,7 @@ namespace CrazyUniverse.Core.Models
         }
 
         public string TypeName => GetType().Name;
-        private Action<string>? _logger;
+        protected Action<string>? _logger; // Изменили private на protected, чтобы дочерние классы могли логировать при желании
 
         protected Animal(string name, int energyLevel)
         {
@@ -91,8 +91,11 @@ namespace CrazyUniverse.Core.Models
             ModifyEnergy(-10);
         }
 
-        // Polymorphic special action replaces manager if/else statements
+        // Абстрактное специальное действие (уже было у вас)
         public abstract void PerformSpecialAction(IAnimalRepository repository, Action<string> logger);
+
+        // НОВОЕ: Абстрактный метод для издания звука
+        public abstract void MakeSound(Action<string> logger);
 
         public void Dispose()
         {

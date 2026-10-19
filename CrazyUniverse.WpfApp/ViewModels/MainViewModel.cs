@@ -52,6 +52,9 @@ namespace CrazyUniverse.WpfApp.ViewModels
             RemoveCommand = new RelayCommand(_ => ExecuteRemove(), _ => SelectedAnimal != null);
             CrazyActionCommand = new RelayCommand(async _ => await ExecuteCrazyActionAsync(), _ => SelectedAnimal != null);
 
+            // Инициализация команды издавания звука
+            MakeSoundCommand = new RelayCommand(_ => ExecuteMakeSound(), _ => SelectedAnimal != null);
+
             // Seed sample data to test UI and LINQ immediately
             SeedData();
             UpdateDisplayedAnimals();
@@ -165,6 +168,7 @@ namespace CrazyUniverse.WpfApp.ViewModels
         public ICommand AddCommand { get; }
         public ICommand RemoveCommand { get; }
         public ICommand CrazyActionCommand { get; }
+        public ICommand MakeSoundCommand { get; } // Новая команда
         public ICommand TriggerCrazyActionCommand { get; } = new RelayCommand(_ => { });
 
         // --- Helper methods ---
@@ -184,7 +188,6 @@ namespace CrazyUniverse.WpfApp.ViewModels
         {
             if (string.IsNullOrWhiteSpace(NewAnimalName)) return;
 
-            // Используем NewAnimalType для определения типа создаваемого объекта
             Animal newAnimal = NewAnimalType switch
             {
                 "Horse" => new Horse(NewAnimalName, 80),
@@ -224,12 +227,19 @@ namespace CrazyUniverse.WpfApp.ViewModels
 
             LogMessage($"--- Action triggered by {SelectedAnimal.Name} ---");
 
-
             SelectedAnimal.PerformSpecialAction(_currentRepository, LogMessage);
             _currentRepository.TriggerCrazyActionForAnimal(SelectedAnimal);
 
             UpdateDisplayedAnimals();
             await System.Threading.Tasks.Task.CompletedTask;
+        }
+
+        private void ExecuteMakeSound()
+        {
+            if (SelectedAnimal == null) return;
+
+            // Полиморфный вызов — конкретное животное само считывает нужный звук из .resx
+            SelectedAnimal.MakeSound(LogMessage);
         }
 
         // --- LINQ Integration & View Refresh ---
@@ -252,7 +262,7 @@ namespace CrazyUniverse.WpfApp.ViewModels
 
         private void LogMessage(string message)
         {
-            LogText = $"{DateTime.Now:HH:mm:ss} - {message}\n" + LogText;
+            LogText = $"{DateTime.Now:HH:mm:ss} {message}\n" + LogText;
         }
 
         private void SeedData()

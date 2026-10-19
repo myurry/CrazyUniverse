@@ -59,7 +59,10 @@ namespace CrazyUniverse.WpfApp
 
         private void BtnMakeSound_Click(object sender, RoutedEventArgs e)
         {
-            // Дополнительная логика звука, если требуется
+            if (ViewModel?.MakeSoundCommand != null && ViewModel.MakeSoundCommand.CanExecute(null))
+            {
+                ViewModel.MakeSoundCommand.Execute(null);
+            }
         }
 
         private async void OnCrazyActionClick(object sender, RoutedEventArgs e)

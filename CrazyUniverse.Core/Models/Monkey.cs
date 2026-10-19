@@ -1,9 +1,11 @@
-﻿using System;
+﻿using CrazyUniverse.Core.Interfaces;
+using System;
 using System.Resources;
+using System.Runtime.CompilerServices;
 
 namespace CrazyUniverse.Core.Models
 {
-    public class Monkey : Animal
+    public class Monkey : Animal, ISwimmable, IClimbable
     {
         private static readonly Random _random = new();
 
@@ -28,6 +30,16 @@ namespace CrazyUniverse.Core.Models
             {
                 logger($"{Name} is silent.");
             }
+        }
+
+        public void Climb(Action<string> logger)
+        {
+            logger($"{Name} the Monkey climbs a tree!");
+        }
+
+        public void Swim(Action<string> logger)
+        {
+            logger($"{Name} the Monkey swims in the water!");
         }
     }
 }

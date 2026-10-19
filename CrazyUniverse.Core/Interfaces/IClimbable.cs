@@ -6,6 +6,6 @@ namespace CrazyUniverse.Core.Interfaces
 {
     public interface IClimbable
     {
-        string Climb();
+        void Climb(Action<string> logger);
     }
 }

@@ -1,8 +1,9 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using System.Threading.Tasks;
+﻿using CrazyUniverse.Core.Interfaces;
 using CrazyUniverse.Core.Models;
 using CrazyUniverse.WpfApp.ViewModels;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace CrazyUniverse.WpfApp
 {
@@ -89,7 +90,42 @@ namespace CrazyUniverse.WpfApp
 
         private void BtnTriggerAbility_Click(object sender, RoutedEventArgs e)
         {
-            OnCrazyActionClick(sender, e);
+            if (ViewModel?.SelectedAnimal == null) return;
+
+            var animal = ViewModel.SelectedAnimal;
+            bool actionExecuted = false;
+
+            // Define the logger delegate to update the UI log
+            Action<string> logger = message =>
+            {
+                ViewModel.LogText += message + "\n";
+            };
+
+            // Check and trigger IFlyable
+            if (animal is IFlyable flyable)
+            {
+                flyable.Fly(logger);
+                actionExecuted = true;
+            }
+
+            // Check and trigger IClimbable
+            if (animal is IClimbable climbable)
+            {
+                climbable.Climb(logger);
+                actionExecuted = true;
+            }
+
+            // Check and trigger ISwimmable
+            if (animal is ISwimmable swimmable)
+            {
+                swimmable.Swim(logger);
+                actionExecuted = true;
+            }
+
+            if (!actionExecuted)
+            {
+                ViewModel.LogText += $"[{animal.Name}] has no special interface abilities.\n";
+            }
         }
 
         private void AnimalTabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)

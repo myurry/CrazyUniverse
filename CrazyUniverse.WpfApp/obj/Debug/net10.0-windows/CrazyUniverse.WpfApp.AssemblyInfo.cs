@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CrazyUniverse.WpfApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f07506b258047c6460fdbaa22c2d21389c33902f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe6155397eccea08828e2bd58832cb9fec941eaa")]
 [assembly: System.Reflection.AssemblyProductAttribute("CrazyUniverse.WpfApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CrazyUniverse.WpfApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

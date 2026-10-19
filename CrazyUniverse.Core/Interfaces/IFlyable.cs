@@ -6,6 +6,6 @@ namespace CrazyUniverse.Core.Interfaces
 {
     public interface IFlyable
     {
-        string Fly();
+        void Fly(Action<string> logger);
     }
 }

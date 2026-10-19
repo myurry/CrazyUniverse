@@ -1,8 +1,9 @@
-﻿using System.Resources;
+﻿using CrazyUniverse.Core.Interfaces;
+using System.Resources;
 
 namespace CrazyUniverse.Core.Models
 {
-    public class Bird : Animal
+    public class Bird : Animal, IFlyable
     {
         private static readonly Random _random = new();
 
@@ -28,6 +29,11 @@ namespace CrazyUniverse.Core.Models
             {
                 logger($"{Name} is silent.");
             }
+        }
+
+        public void Fly(Action<string> logger)
+        {
+            logger($"{Name} is flying high in the sky!");
         }
     }
 }

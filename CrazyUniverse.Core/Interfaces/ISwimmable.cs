@@ -6,6 +6,6 @@ namespace CrazyUniverse.Core.Interfaces
 {
     public interface ISwimmable
     {
-        string Swim();
+        void Swim(Action<string> logger);
     }
 }

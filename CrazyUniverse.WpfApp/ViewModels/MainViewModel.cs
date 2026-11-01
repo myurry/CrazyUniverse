@@ -7,6 +7,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace CrazyUniverse.WpfApp.ViewModels
@@ -18,6 +21,11 @@ namespace CrazyUniverse.WpfApp.ViewModels
         private readonly Repository<Cow> _cowRepository = new();
         private readonly Repository<Monkey> _monkeyRepository = new();
         private readonly Repository<Bird> _birdRepository = new();
+
+        // Simulation Service & State
+        private readonly SimulationService _simulationService = new();
+        private CancellationTokenSource? _cts;
+        private int _selectedWorkloadSize = 300000000; // Default to Heavy (>5s)
 
         private IAnimalRepository _currentRepository;
         private Animal? _selectedAnimal;
@@ -42,18 +50,35 @@ namespace CrazyUniverse.WpfApp.ViewModels
             }
         }
 
+        public int SelectedWorkloadSize
+        {
+            get => _selectedWorkloadSize;
+            set
+            {
+                if (_selectedWorkloadSize != value)
+                {
+                    _selectedWorkloadSize = value;
+                    OnPropertyChanged(nameof(SelectedWorkloadSize));
+                }
+            }
+        }
+
         public MainViewModel()
         {
             // Default to Horse repository
             _currentRepository = _horseRepository;
 
-            // Initialize Commands
+            // Initialize Existing Commands
             AddCommand = new RelayCommand(_ => ExecuteAdd(), _ => !string.IsNullOrWhiteSpace(NewAnimalName));
             RemoveCommand = new RelayCommand(_ => ExecuteRemove(), _ => SelectedAnimal != null);
             CrazyActionCommand = new RelayCommand(async _ => await ExecuteCrazyActionAsync(), _ => SelectedAnimal != null);
-
-            // Инициализация команды издавания звука
             MakeSoundCommand = new RelayCommand(_ => ExecuteMakeSound(), _ => SelectedAnimal != null);
+            TriggerCrazyActionCommand = new RelayCommand(_ => { });
+
+            // Initialize Vol.3 Simulation Commands
+            RunSequentialCommand = new RelayCommand(async _ => await ExecuteRunSequentialAsync());
+            RunParallelCommand = new RelayCommand(async _ => await ExecuteRunParallelAsync());
+            CancelSimulationCommand = new RelayCommand(_ => ExecuteCancelSimulation());
 
             // Seed sample data to test UI and LINQ immediately
             SeedData();
@@ -168,8 +193,13 @@ namespace CrazyUniverse.WpfApp.ViewModels
         public ICommand AddCommand { get; }
         public ICommand RemoveCommand { get; }
         public ICommand CrazyActionCommand { get; }
-        public ICommand MakeSoundCommand { get; } // Новая команда
-        public ICommand TriggerCrazyActionCommand { get; } = new RelayCommand(_ => { });
+        public ICommand MakeSoundCommand { get; }
+        public ICommand TriggerCrazyActionCommand { get; }
+
+        // Vol.3 Simulation Commands
+        public ICommand RunSequentialCommand { get; }
+        public ICommand RunParallelCommand { get; }
+        public ICommand CancelSimulationCommand { get; }
 
         // --- Helper methods ---
 
@@ -237,9 +267,75 @@ namespace CrazyUniverse.WpfApp.ViewModels
         private void ExecuteMakeSound()
         {
             if (SelectedAnimal == null) return;
-
-            // Полиморфный вызов — конкретное животное само считывает нужный звук из .resx
             SelectedAnimal.MakeSound(LogMessage);
+        }
+
+        // --- Vol.3 Simulation Handlers ---
+
+        private async Task ExecuteRunSequentialAsync()
+        {
+            var selectedAnimals = _currentRepository.GetAllAnimals().Where(a => a.IsSelectedForSimulation).ToList();
+            if (selectedAnimals.Count < 3)
+            {
+                LogMessage("Simulation Notice: Please check at least 3 animals in the list to run the simulation.");
+                return;
+            }
+
+            _cts = new CancellationTokenSource();
+            LogMessage($"=== Starting Sequential Simulation ({selectedAnimals.Count} animals, Workload: {SelectedWorkloadSize:N0}) ===");
+
+            try
+            {
+                var report = await _simulationService.RunSequentialAsync(selectedAnimals, SelectedWorkloadSize, _cts.Token);
+                FormatAndLogReport(report);
+            }
+            catch (Exception ex)
+            {
+                LogMessage($"Sequential Simulation Error: {ex.Message}");
+            }
+        }
+
+        private async Task ExecuteRunParallelAsync()
+        {
+            var selectedAnimals = _currentRepository.GetAllAnimals().Where(a => a.IsSelectedForSimulation).ToList();
+            if (selectedAnimals.Count < 3)
+            {
+                LogMessage("Simulation Notice: Please check at least 3 animals in the list to run the simulation.");
+                return;
+            }
+
+            _cts = new CancellationTokenSource();
+            LogMessage($"=== Starting Parallel Simulation ({selectedAnimals.Count} animals, Workload: {SelectedWorkloadSize:N0}) ===");
+
+            try
+            {
+                var report = await _simulationService.RunParallelAsync(selectedAnimals, SelectedWorkloadSize, _cts.Token);
+                FormatAndLogReport(report);
+            }
+            catch (Exception ex)
+            {
+                LogMessage($"Parallel Simulation Error: {ex.Message}");
+            }
+        }
+
+        private void ExecuteCancelSimulation()
+        {
+            _simulationService.Cancel();
+            _cts?.Cancel();
+            LogMessage("--- Simulation cancellation requested ---");
+        }
+
+        private void FormatAndLogReport(SimulationReport report)
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine($"[Report - {report.Mode} Mode]");
+            sb.AppendLine($"Total Execution Time: {report.TotalDuration.TotalMilliseconds:N2} ms");
+            foreach (var res in report.Results)
+            {
+                string outcome = res.IsSuccessful ? res.ResultMessage : (res.ErrorMessage ?? "Unknown Error");
+                sb.AppendLine($"  • {res.ObjectName} | State: {res.FinalState} | Result: {outcome} | Duration: {res.Duration.TotalMilliseconds:N2} ms");
+            }
+            LogMessage(sb.ToString().TrimEnd());
         }
 
         // --- LINQ Integration & View Refresh ---
@@ -267,12 +363,65 @@ namespace CrazyUniverse.WpfApp.ViewModels
 
         private void SeedData()
         {
-            var h1 = new Horse("Spirit", 90);
-            var h2 = new Horse("Thunder", 85);
-            h1.BindToRepository(_horseRepository, LogMessage);
-            h2.BindToRepository(_horseRepository, LogMessage);
-            _horseRepository.AddAnimal(h1);
-            _horseRepository.AddAnimal(h2);
+            // Horses (5)
+            var horses = new[]
+            {
+                new Horse("Spirit", 90),
+                new Horse("Thunder", 85),
+                new Horse("Blaze", 75),
+                new Horse("Shadow", 80),
+                new Horse("Storm", 95)
+            };
+            foreach (var h in horses)
+            {
+                h.BindToRepository(_horseRepository, LogMessage);
+                _horseRepository.AddAnimal(h);
+            }
+
+            // Cows (5)
+            var cows = new[]
+            {
+                new Cow("Bessie", 70),
+                new Cow("Daisy", 65),
+                new Cow("Clarabelle", 80),
+                new Cow("Buttercup", 75),
+                new Cow("Moo", 60)
+            };
+            foreach (var c in cows)
+            {
+                c.BindToRepository(_cowRepository, LogMessage);
+                _cowRepository.AddAnimal(c);
+            }
+
+            // Monkeys (5)
+            var monkeys = new[]
+            {
+                new Monkey("George", 85),
+                new Monkey("Abu", 90),
+                new Monkey("Coco", 75),
+                new Monkey("Banana", 80),
+                new Monkey("Jojo", 88)
+            };
+            foreach (var m in monkeys)
+            {
+                m.BindToRepository(_monkeyRepository, LogMessage);
+                _monkeyRepository.AddAnimal(m);
+            }
+
+            // Birds (5)
+            var birds = new[]
+            {
+                new Bird("Sky", 60),
+                new Bird("Feather", 70),
+                new Bird("Tweety", 65),
+                new Bird("Blue", 80),
+                new Bird("Chirp", 75)
+            };
+            foreach (var b in birds)
+            {
+                b.BindToRepository(_birdRepository, LogMessage);
+                _birdRepository.AddAnimal(b);
+            }
         }
     }
 

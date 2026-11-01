@@ -1,8 +1,20 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Threading;
 
 namespace CrazyUniverse.Core.Models
 {
+    public class AnimalSimulationResult
+    {
+        public string ObjectName { get; set; } = string.Empty;
+        public string FinalState { get; set; } = string.Empty;
+        public string ResultMessage { get; set; } = string.Empty;
+        public TimeSpan Duration { get; set; }
+        public bool IsSuccessful { get; set; }
+        public string? ErrorMessage { get; set; }
+    }
+
     public abstract class Animal : INotifyPropertyChanged, IDisposable
     {
         private string _name = string.Empty;
@@ -36,7 +48,21 @@ namespace CrazyUniverse.Core.Models
         }
 
         public string TypeName => GetType().Name;
-        protected Action<string>? _logger; // Изменили private на protected, чтобы дочерние классы могли логировать при желании
+        protected Action<string>? _logger;
+
+        private bool _isSelectedForSimulation;
+        public bool IsSelectedForSimulation
+        {
+            get => _isSelectedForSimulation;
+            set
+            {
+                if (_isSelectedForSimulation != value)
+                {
+                    _isSelectedForSimulation = value;
+                    OnPropertyChanged(nameof(IsSelectedForSimulation));
+                }
+            }
+        }
 
         protected Animal(string name, int energyLevel)
         {
@@ -91,11 +117,68 @@ namespace CrazyUniverse.Core.Models
             ModifyEnergy(-10);
         }
 
-        // Абстрактное специальное действие (уже было у вас)
         public abstract void PerformSpecialAction(IAnimalRepository repository, Action<string> logger);
 
-        // НОВОЕ: Абстрактный метод для издания звука
         public abstract void MakeSound(Action<string> logger);
+
+        /// <summary>
+        /// Performs a resource-intensive CPU computation (simulation/forecast) using a data snapshot.
+        /// Checks the CancellationToken on every cycle and returns a detailed execution result.
+        /// </summary>
+        public virtual AnimalSimulationResult PerformHeavyAction(int workloadSize, CancellationToken cancellationToken)
+        {
+            // 1. Capture a thread-safe data snapshot
+            string snapshotName = Name;
+            int snapshotEnergy = EnergyLevel;
+            string snapshotType = TypeName;
+
+            var stopwatch = Stopwatch.StartNew();
+            double simulationScore = 0;
+
+            try
+            {
+                // 2. Resource-intensive CPU loop
+                for (int i = 0; i < workloadSize; i++)
+                {
+                    // Check cancellation on every CPU cycle
+                    cancellationToken.ThrowIfCancellationRequested();
+
+                    // Heavy math / repetitive simulation calculation
+                    simulationScore += Math.Sin(i + snapshotEnergy) * Math.Cos(i * 0.1);
+                }
+
+                stopwatch.Stop();
+
+                return new AnimalSimulationResult
+                {
+                    ObjectName = snapshotName,
+                    FinalState = $"{snapshotType}: {snapshotName} (Energy: {snapshotEnergy}%)",
+                    ResultMessage = $"Computation completed successfully. Score: {simulationScore:F4}",
+                    Duration = stopwatch.Elapsed,
+                    IsSuccessful = true
+                };
+            }
+            catch (OperationCanceledException)
+            {
+                stopwatch.Stop();
+                throw; // Rethrow cancellation so task runner handles it explicitly
+            }
+            catch (Exception ex)
+            {
+                stopwatch.Stop();
+
+                // Return failed result object so other jobs can continue (as required by Vol.3 report specs)
+                return new AnimalSimulationResult
+                {
+                    ObjectName = snapshotName,
+                    FinalState = $"{snapshotType}: {snapshotName} (Energy: {snapshotEnergy}%)",
+                    ResultMessage = "Computation failed.",
+                    Duration = stopwatch.Elapsed,
+                    IsSuccessful = false,
+                    ErrorMessage = ex.Message
+                };
+            }
+        }
 
         public void Dispose()
         {

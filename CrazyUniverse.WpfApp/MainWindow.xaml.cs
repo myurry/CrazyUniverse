@@ -11,11 +11,9 @@ namespace CrazyUniverse.WpfApp
     {
         private MainViewModel? ViewModel => DataContext as MainViewModel;
 
-
         public MainWindow()
         {
             InitializeComponent();
-
             DataContext = new MainViewModel();
         }
 
@@ -25,8 +23,6 @@ namespace CrazyUniverse.WpfApp
             {
                 if (selectedItem.Content is string animalType && ViewModel != null)
                 {
-                    // Устанавливаем тип только для СОЗДАНИЯ нового животного, 
-                    // не трогая текущую отображаемую вкладку репозитория!
                     ViewModel.NewAnimalType = animalType;
                 }
             }
@@ -36,15 +32,11 @@ namespace CrazyUniverse.WpfApp
         {
             if (ViewModel != null)
             {
-                // 1. Берем текст из TextBox TxtName
                 ViewModel.NewAnimalName = TxtName.Text;
 
-                // 2. Если имя заполнено, вызываем команду добавления
                 if (ViewModel.AddCommand.CanExecute(null))
                 {
                     ViewModel.AddCommand.Execute(null);
-
-                    // 3. Очищаем текстовое поле в UI после успешного добавления
                     TxtName.Text = string.Empty;
                 }
             }
@@ -95,27 +87,23 @@ namespace CrazyUniverse.WpfApp
             var animal = ViewModel.SelectedAnimal;
             bool actionExecuted = false;
 
-            // Define the logger delegate to update the UI log
             Action<string> logger = message =>
             {
                 ViewModel.LogText += message + "\n";
             };
 
-            // Check and trigger IFlyable
             if (animal is IFlyable flyable)
             {
                 flyable.Fly(logger);
                 actionExecuted = true;
             }
 
-            // Check and trigger IClimbable
             if (animal is IClimbable climbable)
             {
                 climbable.Climb(logger);
                 actionExecuted = true;
             }
 
-            // Check and trigger ISwimmable
             if (animal is ISwimmable swimmable)
             {
                 swimmable.Swim(logger);
@@ -130,7 +118,6 @@ namespace CrazyUniverse.WpfApp
 
         private void AnimalTabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
             if (e.OriginalSource is TabControl && sender is TabControl tabControl)
             {
                 if (tabControl.SelectedItem is TabItem selectedTab && selectedTab.Tag is string tagValue)
@@ -140,6 +127,45 @@ namespace CrazyUniverse.WpfApp
                         ViewModel.SelectedAnimalType = tagValue;
                     }
                 }
+            }
+        }
+
+        // --- Vol.3 Simulation UI Event Handlers ---
+
+        private void CmbWorkload_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender is ComboBox comboBox && comboBox.SelectedItem is ComboBoxItem selectedItem)
+            {
+                if (selectedItem.Tag?.ToString() is string tagStr && int.TryParse(tagStr, out int workload) && ViewModel != null)
+                {
+                    ViewModel.SelectedWorkloadSize = workload;
+                }
+            }
+        }
+
+        private async void BtnRunSequential_Click(object sender, RoutedEventArgs e)
+        {
+            if (ViewModel?.RunSequentialCommand != null && ViewModel.RunSequentialCommand.CanExecute(null))
+            {
+                ViewModel.RunSequentialCommand.Execute(null);
+            }
+            await Task.CompletedTask;
+        }
+
+        private async void BtnRunParallel_Click(object sender, RoutedEventArgs e)
+        {
+            if (ViewModel?.RunParallelCommand != null && ViewModel.RunParallelCommand.CanExecute(null))
+            {
+                ViewModel.RunParallelCommand.Execute(null);
+            }
+            await Task.CompletedTask;
+        }
+
+        private void BtnCancelSimulation_Click(object sender, RoutedEventArgs e)
+        {
+            if (ViewModel?.CancelSimulationCommand != null && ViewModel.CancelSimulationCommand.CanExecute(null))
+            {
+                ViewModel.CancelSimulationCommand.Execute(null);
             }
         }
     }

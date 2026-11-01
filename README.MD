@@ -1,32 +1,39 @@
-# Crazy Universe - Animal Sanctuary
+# Crazy Universe - Vol.3 CPU Simulation Guide
 
-## 1. Overview
-A humorous WPF application where different animals live in a shared world with unique behaviors, interfaces, and randomized crazy actions. The project incorporates typed repositories, dynamic greetings, and reactive behavior handling.
+This guide outlines how to test and verify the multi-object CPU simulation features, error resilience, and task cancellation introduced in Vol.3.
 
-## 2. How to Run
-1. Clone the repository and open the solution file (`.slnx`) in Visual Studio 2026.
-2. Set `CrazyUniverse.WpfApp` as the startup project.
-3. Press `F5` to build and run.
+## Prerequisites
+1. Launch the application (`CrazyUniverse.WpfApp`).
+2. Ensure you have at least **3 animals** in your repositories (the updated starter seed provides 5 of each type by default).
 
-## 3. Architecture & Class Hierarchy
-- **Repositories**: Distinct repositories for each animal type (`Horse`, `Cow`, `Monkey`, `Bird`), implementing generic `Repository<T>` and a non-generic `IAnimalRepository` interface.
-- **Animal (Abstract base class)**: Manages shared properties (`Name`, `EnergyLevel`), standard sound behavior, and the abstract `CrazyAction()`. State encapsulation protects identity and energy mutations.
-- **Subclasses**: 
-  - `Cow` & `Horse`: Unique sounds and actions.
-  - `Monkey`: Implements `IClimbable` and `ISwimmable`.
-  - `Bird`: Implements `IFlyable`.
+---
 
-## 4. State, Greeting, & Reacting Logic
-- **Validation**: Input names cannot be blank, and energy levels are safely bounded between 0 and 100.
-- **Greeting & Reacting**: Animals feature reactive behaviors where actions and greetings trigger cross-entity notifications and event handling within the sanctuary ecosystem.
-- **CrazyAction()**: Polymorphic execution of chaotic effects (e.g., chocolate milk production, cloning, system log wiping, or fake countdowns) relying on object polymorphism rather than large conditional type-checking blocks.
+## Testing Instructions
 
-## 5. Use Cases
-1. Add a new animal with a valid name and energy level into its respective repository tab.
-2. Enter invalid data (like empty names) to test safe error handling.
-3. Select an animal to trigger its standard sound and greeting.
-4. Execute `CrazyAction()` to modify the animal's state, view real-time log updates, and trigger reactive behaviors.
-5. Select a Monkey or Bird to enable and test interface-specific actions via the UI Expander panel.
+### 1. Sequential Mode Demonstration
+* **Steps:** 
+  1. Check the selection boxes (`IsSelectedForSimulation`) for **at least 3 animals** in the list.
+  2. Select a workload size from the dropdown (e.g., *Heavy / >5s (300M)*).
+  3. Click **Run Sequential**.
+* **Expected Result:** The activity log displays `[Report - Sequential Mode]`, listing each animal's name, final state, success status, and individual duration one after another, followed by the total execution time.
 
-## 6. WPF UI Element Rationale
-An `Expander` is used to neatly organize and toggle visibility for special interface abilities (`IClimbable` / `IFlyable` / `ISwimmable`), keeping the main detail panel clean and uncluttered.
+### 2. Parallel Mode Demonstration
+* **Steps:**
+  1. Keep the same 3+ animals checked.
+  2. Click **Run Parallel**.
+* **Expected Result:** The activity log displays `[Report - Parallel Mode]`. Notice that the **Total Execution Time** is significantly faster than the sequential run because all computations execute concurrently via `Task.Run` and `Task.WhenAll`. The UI remains fully responsive throughout.
+
+### 3. Error Handling Demonstration
+* **Steps:**
+  1. Add a new animal (or rename one) with the name `"Error"` (or ensure one of your selected animals triggers a simulated exception).
+  2. Select this animal along with 2 healthy animals.
+  3. Run either Sequential or Parallel mode.
+* **Expected Result:** The report captures the exception message for `"ErrorTest"` (`IsSuccessful = false`), but **successfully finishes** the remaining healthy animal computations without crashing the app.
+
+### 4. Cancellation Demonstration
+* **Steps:**
+  1. Select 3 or more animals.
+  2. Choose a larger workload (e.g., *Massive (500M)*).
+  3. Click **Run Parallel** (or Sequential).
+  4. Immediately click the **Cancel** button while it is running.
+* **Expected Result:** The shared `CancellationToken` aborts the remaining CPU cycles cleanly, stopping execution and logging the cancellation notice.

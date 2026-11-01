@@ -4,12 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Crazy Universe - Animal Sanctuary" Height="500" Width="850"
+        Title="Crazy Universe - Animal Sanctuary" Height="620" Width="900"
         WindowStartupLocation="CenterScreen">
 
     <Grid Margin="15">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="320"/>
+            <ColumnDefinition Width="340"/>
             <ColumnDefinition Width="15"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
@@ -59,7 +59,7 @@
                 </Grid>
             </StackPanel>
 
-            <!-- Animal List -->
+            <!-- Animal List with Checkboxes for Simulation -->
             <ListView x:Name="LstAnimals" 
                       ItemsSource="{Binding DisplayedAnimals}" 
                       SelectedItem="{Binding SelectedAnimal, Mode=TwoWay}"
@@ -67,8 +67,9 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="2">
-                            <TextBlock Text="{Binding Name}" FontWeight="Bold" Margin="0,0,5,0"/>
-                            <TextBlock Text="{Binding EnergyLevel, StringFormat='(Energy: {0})'}" Foreground="Gray"/>
+                            <CheckBox IsChecked="{Binding IsSelectedForSimulation, Mode=TwoWay}" VerticalAlignment="Center" Margin="0,0,6,0" ToolTip="Select for Vol.3 Simulation"/>
+                            <TextBlock Text="{Binding Name}" FontWeight="Bold" Margin="0,0,5,0" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding EnergyLevel, StringFormat='(Energy: {0})'}" Foreground="Gray" VerticalAlignment="Center"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -77,9 +78,10 @@
 
         <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Center" Background="#FFE0E0E0"/>
 
-        <!-- Right Column: Details, Actions, and Log -->
+        <!-- Right Column: Details, Actions, Simulation Controls, and Log -->
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -96,17 +98,36 @@
                 <Button x:Name="BtnRemove" Content="Remove Animal" Click="BtnRemove_Click" Margin="0,0,8,8" Padding="8,5" Background="#FFF0F0F0"/>
             </WrapPanel>
 
-            <!-- Independent WPF UI Element: Expander for Special Capabilities -->
-            <Expander Grid.Row="2" x:Name="ExpSpecialAbilities" Header="Special Interface Abilities (IClimbable / IFlyable)" IsExpanded="True" Margin="0,0,0,10" Padding="5">
+            <!-- Expander for Special Capabilities -->
+            <Expander Grid.Row="2" x:Name="ExpSpecialAbilities" Header="Special Interface Abilities (IClimbable / IFlyable)" IsExpanded="False" Margin="0,0,0,10" Padding="5">
                 <StackPanel Margin="5">
                     <TextBlock x:Name="TxtAbilityStatus" Text="Select a Monkey or a Bird to test interface abilities." FontStyle="Italic" Margin="0,0,0,5"/>
                     <Button x:Name="BtnTriggerAbility" Content="Trigger Interface Ability" Click="BtnTriggerAbility_Click" Padding="6,4" HorizontalAlignment="Left"/>
                 </StackPanel>
             </Expander>
 
+            <!-- Vol.3 CPU Simulation Panel -->
+            <Expander Grid.Row="3" Header="Vol.3 CPU Simulations (Sequential &amp; Parallel)" IsExpanded="True" Margin="0,0,0,10" Padding="5">
+                <StackPanel Margin="5">
+                    <TextBlock Text="Workload Size (Iterations):" FontWeight="Bold" Margin="0,0,0,3"/>
+                    <ComboBox x:Name="CmbWorkload" SelectedIndex="2" Margin="0,0,0,8" Height="24" SelectionChanged="CmbWorkload_SelectionChanged">
+                        <ComboBoxItem Content="Quick (10M)" Tag="10000000"/>
+                        <ComboBoxItem Content="Medium (100M)" Tag="100000000"/>
+                        <ComboBoxItem Content="Heavy / >5s (300M)" Tag="300000000"/>
+                        <ComboBoxItem Content="Massive (500M)" Tag="500000000"/>
+                    </ComboBox>
+
+                    <WrapPanel>
+                        <Button x:Name="BtnRunSequential" Content="Run Sequential" Margin="0,0,8,5" Padding="8,5" Background="#E3F2FD" Click="BtnRunSequential_Click"/>
+                        <Button x:Name="BtnRunParallel" Content="Run Parallel" Margin="0,0,8,5" Padding="8,5" Background="#E8F5E9" Click="BtnRunParallel_Click"/>
+                        <Button x:Name="BtnCancelSimulation" Content="Cancel" Margin="0,0,8,5" Padding="8,5" Background="#FFEBEE" Click="BtnCancelSimulation_Click"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Expander>
+
             <!-- Log / Output Area -->
-            <DockPanel Grid.Row="3">
-                <TextBlock Text="Activity Log:" FontWeight="Bold" DockPanel.Dock="Top" Margin="0,0,0,5"/>
+            <DockPanel Grid.Row="4">
+                <TextBlock Text="Activity Log &amp; Reports:" FontWeight="Bold" DockPanel.Dock="Top" Margin="0,0,0,5"/>
                 <TextBox x:Name="TxtLog" Text="{Binding LogText, Mode=OneWay}" IsReadOnly="True" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Background="#FFF9F9F9"/>
             </DockPanel>
         </Grid>

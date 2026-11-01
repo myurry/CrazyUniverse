@@ -28,7 +28,7 @@ This guide outlines how to test and verify the multi-object CPU simulation featu
   1. Add a new animal (or rename one) with the name `"Error"` (or ensure one of your selected animals triggers a simulated exception).
   2. Select this animal along with 2 healthy animals.
   3. Run either Sequential or Parallel mode.
-* **Expected Result:** The report captures the exception message for `"ErrorTest"` (`IsSuccessful = false`), but **successfully finishes** the remaining healthy animal computations without crashing the app.
+* **Expected Result:** The report captures the exception message for `"Error"` (`IsSuccessful = false`), but **successfully finishes** the remaining healthy animal computations without crashing the app.
 
 ### 4. Cancellation Demonstration
 * **Steps:**
